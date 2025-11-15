@@ -1,0 +1,56 @@
+------------------------------------------------------------------------
+
+
+```{r}
+library(tidyverse)
+library(sf)
+library(ggplot2)
+library(leaflet.providers)
+
+data <- read_csv("g24-cleaned.csv", show_col_types=FALSE)
+
+dist2024 <- read_csv("district_2024_results.csv")
+dist2025 <- read_csv("district_2025_results.csv")
+
+cd2024 <- st_read("data/shapefiles/cd_2024.shp")
+cd2025 <- st_read("data/shapefiles/cd_2025.shp")
+
+map_2024 <- cd2024 |> left_join(dist2024, by = "district")
+map_2025  <- cd20245 <- left_join(dist2025, by = "district")
+
+
+leaflet(map_2024) |>
+addProviderTitle("CartoDB.Positron") |>
+addPolygons(
+fillColor = ~ifelse(dem>rep, "#2c7bb6", "#d7191c"),
+fillOpacity = 0.7,
+weight = 1
+color = "white"
+label - ~paste("District", district,
+"Dem:", dem,
+"Rep:", rep)
+
+leaflet(map_2025) |>
+addProviderTitle("CartoDB.Positron") |>
+addPolygons(
+fillColor = ~ifelse(dem>rep, "#2c7bb6", "#d7191c"),
+fillOpacity = 0.7,
+weight = 1
+color = "white"
+label - ~paste("District", district,
+"Dem:", dem,
+"Rep:", rep)
+
+data.frame(
+seat_share_dem_2024 = mean(district_2024$dem>
+district_2024$rep),
+meanmedian2024 = mean(dist2024) - median(dist2024),
+effgap2024 = eff_gap(dist2024$dem, dist2024$2024$rep))
+
+data.frame(
+seat_share_dem_2025 = mean(district_2025$dem>
+district_2025$rep),
+meanmedian2025 = mean(dist2024) - median(dist2025),
+effgap2025 = eff_gap(dist2025$dem, dist2025$2025$rep))
+
+```title: Dashboard format: dashboard

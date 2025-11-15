@@ -1,0 +1,54 @@
+---
+title: Exploratory Data Analysis
+format: typst
+---
+
+### Question 1
+
+Which precinct had the closest congressional race measured by small absolute difference between US House Democratic and Republican votes
+### Answer 1
+
+```{r}
+library(tidyverse)
+
+data <- read_csv("g24-cleaned.csv", show_col_types = FALSE) |>
+    mutate(
+        USPDEM01 = as.numeric(USPDEM01),
+        USPREP01 = as.numeric(USPREP01),
+        TOTVOTE = as.numeric(TOTVOTE)
+    )
+
+closestcd <- data |>
+    mutate(cd_margin = abs(USPDEM01 - USPREP01)) |>
+    slice_min(cd_margin, n = 1) |>
+    select(SVPREC, CDDIST, USPDEM01, USPREP01, cd_margin)
+
+closestcd
+```
+
+### Question 2
+
+What is the total number of precincts in California?
+### Answer 2
+
+```{r}
+library(tidyverse)
+
+data <- read_csv("g24-cleaned.csv")
+
+nprecincts <- nrow(data)
+nprecincts
+```
+### Question 3
+
+What is the range of the total precinct size?
+### Answer 3
+
+```{r}
+precinctsizerange <- data |>
+    summarize(
+        min_size = min(TOTVOTE, na.rm = TRUE),
+        max_size = max(TOTVOTE, na.rm = TRUE)
+    )
+    precinctsizerange
+```

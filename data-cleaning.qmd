@@ -1,0 +1,46 @@
+---
+title: Data Cleaning
+format: typst
+---
+
+
+```{r}
+library(tidyverse)
+library(readxl)
+
+rawdata <- read_csv("/Users/brandonbosch/Downloads/gerrymandering-brandongbosch-main/data/g24_sov_by_g24_svprec.csv")
+
+cleaned <- rawdata |>
+    mutate(
+        COUNTY = as.integer(COUNTY),
+        FIPS = as.integer(FIPS),
+        SVPREC = as.character(SVPREC),
+        ADDIST = as.integer(ADDIST),
+        CDDIST = as.integer(CDDIST),
+        SDDIST = as.integer(SDDIST),
+        BEDIST = as.integer(BEDIST)
+    ) |>
+        distinct()
+write.csv(cleaned, "g24-cleaned.csv")
+```
+```{r}
+library(tidyverse)
+library(sf)
+
+srvotes <- rawdata <- read_csv("/Users/brandonbosch/Downloads/gerrymandering-brandongbosch-main/data/g24_sov_by_g24_svprec.csv", show_col_types=FALSE)
+
+rawdata <- read_csv("/Users/brandonbosch/Downloads/gerrymandering-brandongbosch-main/data/g24_sov_by_g24_svprec.csv")
+cleaned <- rawdata |>
+    mutate(
+        COUNTY = as.integer(COUNTY),
+        FIPS = as.integer(FIPS),
+        SVPREC = as.character(SVPREC),
+        ADDIST = as.integer(ADDIST),
+        CDDIST = as.integer(CDDIST),
+        SDDIST = as.integer(SDDIST),
+        BEDIST = as.integer(BEDIST)
+    ) |>
+        distinct()
+write.csv(cleaned, "g24-cleaned.csv")
+
+```

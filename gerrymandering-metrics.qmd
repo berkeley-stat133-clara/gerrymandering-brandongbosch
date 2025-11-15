@@ -1,0 +1,69 @@
+---
+title: Gerrymandering Metrics
+format: typst
+---
+
+### 2024 Election Results and the 2024 District Map
+
+```{r}
+library(tidyverse)
+data <- read_csv("g24-cleaned.csv", show_col_types = FALSE) |>
+    mutate(
+        USPDEM01 = as.numeric(USPDEM01),
+        USPREP01 = as.numeric(USPREP01)
+    )
+
+districtvotes2024 <- data |>
+    group_by(CDDIST) |>
+    summarize(
+        dem = sum(USPDEM01, na.rm = TRUE),
+        rep = sum(USPREP01, na.rm = TRUE)
+    ) |>
+        ungroup()
+
+mmscore2024 <- mean(districtvotes2024$dem) - median(districtvotes2024$dem)
+mmscore2024
+
+effgap <- function(d,r) {
+    total <- d+r
+    thresh <- floor(total/2) + 1
+    wastedd <- ifelse(d > r, d - thresh, d)
+    wastedr <- ifelse(r > d, r - thresh, r)
+    sum(wastedd - wastedr)/sum(total)
+}
+
+effgap2024 <- effgap(districtvotes2024$dem, districtvotes2024$rep)
+
+effgap2024
+
+### 2024 Election Results and the proposed 2025 District Map
+distvotes2025 <- data |>
+    group_by(ADDIST) |>
+    summarize(
+        dem = sum(USPDEM01, na.rem = TRUE),
+        rep = sum(USPDEM01, na.rem = TRUE)
+    ) |>
+    ungroup()
+
+mmscore2025 <- mean(distvotes2025$dem) - median(distvotes2025$rep)
+mmscore2025
+
+effgap2025 <- effgap(distvotes2025$dem, distvotes2025$rep)
+effgap2025
+```
+```{r}
+### 2024 Election Results and the proposed 2025 District Map
+distvotes2025 <- data |>
+    group_by(ADDIST) |>
+    summarize(
+        dem = sum(USPDEM01, na.rem = TRUE),
+        rep = sum(USPDEM01, na.rem = TRUE)
+    ) |>
+    ungroup()
+
+mmscore2025 <- mean(distvotes2025$dem) - median(distvotes2025$rep)
+mmscore2025
+
+effgap2025 <- effgap(distvotes2025$dem, distvotes2025$rep)
+effgap2025
+```
