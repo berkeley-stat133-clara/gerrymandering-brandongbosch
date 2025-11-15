@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ------------------------------------------------------------------------
 
 
@@ -54,3 +55,10 @@ meanmedian2025 = mean(dist2024) - median(dist2025),
 effgap2025 = eff_gap(dist2025$dem, dist2025$2025$rep))
 
 ```title: Dashboard format: dashboard
+=======
+---
+title: Dashboard
+format: dashboard
+---
+
+>>>>>>> 6fce489c8c352df656b0a073ccc813cec29c3802

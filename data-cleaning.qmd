@@ -3,6 +3,7 @@ title: Data Cleaning
 format: typst
 ---
 
+<<<<<<< HEAD
 
 ```{r}
 library(tidyverse)
@@ -44,3 +45,5 @@ cleaned <- rawdata |>
 write.csv(cleaned, "g24-cleaned.csv")
 
 ```
+=======
+>>>>>>> 6fce489c8c352df656b0a073ccc813cec29c3802

@@ -5,6 +5,7 @@ format: typst
 
 ### Question 1
 
+<<<<<<< HEAD
 Which precinct had the closest congressional race measured by small absolute difference between US House Democratic and Republican votes
 ### Answer 1
 
@@ -52,3 +53,26 @@ precinctsizerange <- data |>
     )
     precinctsizerange
 ```
+=======
+Put your question here.
+
+### Answer 1
+
+Put your answer here.
+
+### Question 2
+
+Put your question here.
+
+### Answer 2
+
+Put your answer here.
+
+### Question 3
+
+Put your question here.
+
+### Answer 3
+
+Put your answer here.
+>>>>>>> 6fce489c8c352df656b0a073ccc813cec29c3802

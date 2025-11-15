@@ -9,6 +9,7 @@ Recall the 3 quantitative approaches to measuring gerrymandering discussed in le
 3. Ensembles / Extreme Outliers\
 Use the following table to practice applying the first two techniques.\
 
+<<<<<<< HEAD
 | District  | D Votes | R Votes | Result |
 |:---------:|:-------:|:-------:|:-------|
 |     1     |   62    |   38    | D wins |
@@ -17,6 +18,16 @@ Use the following table to practice applying the first two techniques.\
 |     4     |   47    |   53    | R wins |
 |     5     |   46    |   54    | R wins |
 | **Total** | **254** | **246** |        |
+=======
+| District | D Votes | R Votes | Result  |
+|:---------:|:-------:|:-------:|:--------|
+| 1 | 62 | 38 | D wins |
+| 2 | 55 | 45 | D wins |
+| 3 | 44 | 56 | R wins |
+| 4 | 47 | 53 | R wins |
+| 5 | 46 | 54 | R wins |
+| **Total** | **254** | **246** |          |
+>>>>>>> 6fce489c8c352df656b0a073ccc813cec29c3802
 
 ```{r}
 #| message: false
@@ -33,9 +44,13 @@ votes <- tibble(District = 1:5,
 Calculate the mean-median score associated with this particular district breakdown of votes.
 
 ```{r}
+<<<<<<< HEAD
 d_votes = c(62, 55, 44, 47, 46)
 meanmedianscore <- mean(d_votes) - median(d_votes)
 meanmedianscore
+=======
+# add code for Q1 here
+>>>>>>> 6fce489c8c352df656b0a073ccc813cec29c3802
 ```
 
 ### Q2. Efficiency Gap
@@ -44,6 +59,7 @@ Calculate the Efficiency Gap (EG) associated with this particular district break
 
 *Tip*: it may be helpful to write a function that takes a vector of votes across districts for party A and vector of votes for the party B and returns a vector of the number votes wasted by party A across districts.
 
+<<<<<<< HEAD
 ```{r}
 d_votes <- c(62, 55, 44, 47, 46)
 r_votes <- c(38, 45, 56, 53, 54)
@@ -61,4 +77,9 @@ eg <- function(d_votes, r_votes) {
 
 egvalue <- eg(d_votes, r_votes)
 egvalue
+=======
+
+```{r}
+# add code for Q2 here
+>>>>>>> 6fce489c8c352df656b0a073ccc813cec29c3802
 ```

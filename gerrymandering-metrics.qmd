@@ -5,6 +5,7 @@ format: typst
 
 ### 2024 Election Results and the 2024 District Map
 
+<<<<<<< HEAD
 ```{r}
 library(tidyverse)
 data <- read_csv("g24-cleaned.csv", show_col_types = FALSE) |>
@@ -67,3 +68,9 @@ mmscore2025
 effgap2025 <- effgap(distvotes2025$dem, distvotes2025$rep)
 effgap2025
 ```
+=======
+
+
+### 2024 Election Results and the proposed 2025 District Map
+
+>>>>>>> 6fce489c8c352df656b0a073ccc813cec29c3802
